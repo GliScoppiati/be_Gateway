@@ -17,12 +17,12 @@ builder.Services.AddCors(options =>
 // 2. Aggiungi YARP
 builder.Services.AddReverseProxy()
     .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
-
+builder.Services.AddControllers();
 var app = builder.Build();
 
 // 3. Applica la policy CORS PRIMA del reverse proxy
 app.UseCors("AllowFrontend");
-
+app.MapControllers();
 app.MapReverseProxy();
 
 app.Run();
