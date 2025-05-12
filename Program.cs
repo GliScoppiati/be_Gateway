@@ -11,7 +11,7 @@ builder.Services.AddCors(options =>
         policy.WithOrigins("http://localhost:4200") // * ma solo per test
               .AllowAnyHeader()
               .AllowAnyMethod();
-              //.AllowCredentials(); // in futuro per cookie o auth header
+        //.AllowCredentials(); // in futuro per cookie o auth header
     });
 });
 
@@ -34,8 +34,8 @@ var logger = app.Services.GetRequiredService<ILogger<Program>>();
 app.Use(async (context, next) =>
 {
     var method = context.Request.Method;
-    var path   = context.Request.Path;
-    var ip     = context.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+    var path = context.Request.Path;
+    var ip = context.Connection.RemoteIpAddress?.ToString() ?? "unknown";
 
     logger.LogInformation(
         "[ReverseProxy] 🌐 {Method} {Path} from {Ip}",

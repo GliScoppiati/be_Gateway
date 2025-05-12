@@ -21,8 +21,8 @@ public class EasterEggController : ControllerBase
 
         var message = name switch
         {
-            "nromito"    => "🧘 Va tutto bene Nico, tranquillo",
-            _         => "🤔 È una domanda strana da fare qua. Vuoi un cocktail?"
+            "nromito" => "🧘 Va tutto bene Nico, tranquillo",
+            _ => "🤔 È una domanda strana da fare qua. Vuoi un cocktail?"
         };
 
         return Ok(new
